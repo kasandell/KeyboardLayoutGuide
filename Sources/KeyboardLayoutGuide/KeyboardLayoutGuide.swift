@@ -165,8 +165,6 @@ extension Notification {
     }
     
     var animationDuration: CGFloat? {
-        print("animation duration")
-        print(self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat ?? 0.3)
         return 0.33//self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat ?? 0.3
     }
 }
