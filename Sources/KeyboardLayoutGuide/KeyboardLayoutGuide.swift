@@ -74,6 +74,7 @@ open class KeyboardLayoutGuide: UILayoutGuide {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+
     }
 
     internal func setUp() {
@@ -108,6 +109,7 @@ open class KeyboardLayoutGuide: UILayoutGuide {
 
     @objc
     private func adjustKeyboard(_ note: Notification) {
+
         if var height = note.keyboardHeight, let duration = note.animationDuration {
             
             if #available(iOS 11.0, *), usesSafeArea, height > 0, let bottom = owningView?.safeAreaInsets.bottom {
@@ -163,7 +165,9 @@ extension Notification {
     }
     
     var animationDuration: CGFloat? {
-        return self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat
+        print("animation duration")
+        print(self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat ?? 0.3)
+        return 0.33//self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat ?? 0.3
     }
 }
 
